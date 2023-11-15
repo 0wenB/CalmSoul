@@ -1,4 +1,10 @@
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <section className="min-h-screen flex items-stretch text-white ">
@@ -68,7 +74,28 @@ const Login = () => {
                 in
               </span>
             </div>
+
             <form action="" className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+              <GoogleLogin
+                onSuccess={async (credentialResponse) => {
+                  try {
+                    // console.log(credentialResponse);
+                    const { data } = await axios.post(
+                      "http://localhost:3000/auth-google",
+                      null,
+                      { headers: { token: credentialResponse.credential } }
+                    );
+                    // console.log(data);
+                    localStorage.setItem("token", data);
+                    navigate("/");
+                  } catch (error) {
+                    console.log(error);
+                  }
+                }}
+                onError={() => {
+                  console.log("Login Failed");
+                }}
+              />
               <div className="pb-2 pt-4">
                 <input
                   type="email"

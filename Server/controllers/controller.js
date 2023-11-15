@@ -2,6 +2,7 @@ const { Video, User } = require("../models/index");
 const { hashPassword, comparePassword } = require("../helpers/bcrypt");
 const { signToken, decode } = require("../helpers/jwt.js");
 const { Op } = require("sequelize");
+const { OAuth2Client } = require("google-auth-library");
 
 class Controller {
   static async addVideo(req, res, next) {
@@ -153,6 +154,37 @@ class Controller {
   //     next(error);
   //   }
   // }
+  static async Google(req, res, next) {
+    try {
+      // console.log("google auth");
+      const { token } = req.headers;
+      const client = new OAuth2Client();
+      const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: process.env.VITE_GOOGLE_CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
+        // Or, if multiple clients access the backend:
+        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+      });
+      const payload = ticket.getPayload();
+      // console.log(payload);
+      const [user, created] = await User.findOrCreate({
+        where: { email: payload.email },
+        defaults: {
+          username: payload.name,
+          email: payload.email,
+          password: "password_google",
+          role: "User",
+        },
+        hooks: false,
+      });
+      // console.log(user);
+      const access_token = signToken({ id: user.id, email: user.email });
+      res.status(200).json(access_token);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
 }
 
 module.exports = Controller;
