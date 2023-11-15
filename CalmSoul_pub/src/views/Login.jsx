@@ -19,7 +19,7 @@ const Login = () => {
       // console.log(response);
       const token = response.data.access_token;
       localStorage.setItem("token", token);
-      navigate("/");
+      navigate("/main");
     } catch (error) {
       console.log(error);
     }
@@ -112,7 +112,7 @@ const Login = () => {
                     );
                     // console.log(data);
                     localStorage.setItem("token", data);
-                    navigate("/");
+                    navigate("/main");
                   } catch (error) {
                     console.log(error);
                   }
