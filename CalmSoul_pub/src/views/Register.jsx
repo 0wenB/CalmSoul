@@ -1,30 +1,26 @@
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Login = () => {
+const Register = () => {
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [userInput, setUserInput] = useState({
+    username: "",
     email: "",
     password: "",
   });
-  const login = async (e) => {
+  const register = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post(
-        "http://localhost:3000/login",
-        userInput
-      );
-      // console.log(response);
-      const token = response.data.access_token;
-      localStorage.setItem("token", token);
-      navigate("/");
+      await axios.post("http://localhost:3000/register", userInput);
+      navigate("/login");
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
-
+  if (error) return <h1>{error}</h1>;
   return (
     <>
       <section className="min-h-screen flex items-stretch text-white ">
@@ -83,7 +79,7 @@ const Login = () => {
             <h1 className="mt-3  w-auto h-10 inline-flex font-bold text-[3rem]">
               CalmSoul
             </h1>
-            <p> {JSON.stringify(userInput)}</p>
+            <p>{JSON.stringify(userInput)}</p>
             <div className="py-3 space-x-2">
               <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">
                 f
@@ -97,9 +93,9 @@ const Login = () => {
             </div>
 
             <form
+              onSubmit={register}
               action=""
               className="sm:w-2/3 w-full px-4 lg:px-0 mx-auto"
-              onSubmit={login}
             >
               <GoogleLogin
                 onSuccess={async (credentialResponse) => {
@@ -123,6 +119,24 @@ const Login = () => {
               />
               <div className="pb-2 pt-4">
                 <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="Username"
+                  className="block w-full p-4 text-lg rounded-sm bg-white text-black"
+                  value={userInput.username}
+                  onChange={(e) => {
+                    const newUserInput = {
+                      username: e.target.value,
+                      email: userInput.email,
+                      password: userInput.password,
+                    };
+                    setUserInput(newUserInput);
+                  }}
+                />
+              </div>
+              <div className="pb-2 pt-4">
+                <input
                   type="email"
                   name="email"
                   id="email"
@@ -131,6 +145,7 @@ const Login = () => {
                   value={userInput.email}
                   onChange={(e) => {
                     const newUserInput = {
+                      username: userInput.username,
                       email: e.target.value,
                       password: userInput.password,
                     };
@@ -148,6 +163,7 @@ const Login = () => {
                   value={userInput.password}
                   onChange={(e) => {
                     const newUserInput = {
+                      username: userInput.username,
                       email: userInput.email,
                       password: e.target.value,
                     };
@@ -160,7 +176,7 @@ const Login = () => {
                   type="submit"
                   className=" block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
                 >
-                  Login
+                  Register
                 </button>
               </div>
               <div className="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">
@@ -206,4 +222,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
