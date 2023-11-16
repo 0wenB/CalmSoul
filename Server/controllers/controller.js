@@ -3,6 +3,7 @@ const { hashPassword, comparePassword } = require("../helpers/bcrypt");
 const { signToken, decode } = require("../helpers/jwt.js");
 const { Op } = require("sequelize");
 const { OAuth2Client } = require("google-auth-library");
+const nodemailer = require("nodemailer");
 
 class Controller {
   static async addVideo(req, res, next) {
@@ -106,6 +107,30 @@ class Controller {
         where: { email },
         attributes: { exclude: ["password"] },
       });
+      //NodeMailer
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "bryanowen.code@gmail.com",
+          pass: process.env.NODEMAILER_PASS,
+        },
+      });
+
+      let mailOptions = {
+        from: "bryanowen.code@gmail.com",
+        to: email,
+        subject: "Welcome to SoulCalm",
+        text: "Being mindful just gets easier",
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
+
       res.status(201).json({ foundUser });
     } catch (error) {
       next(error);
@@ -139,38 +164,6 @@ class Controller {
     }
   }
 
-  // static async updateImage(req, res, next) {
-  //   try {
-  //     // console.log("masuk");
-  //     // console.log(req.file, "REQ FILE");
-  //     // console.log(req.body, "REQ BODY");
-  //     const { productId } = req.params;
-  //     let product = await Product.findOne({ where: { id: productId } });
-  //     if (!product) {
-  //       throw { message: "Not Found" };
-  //     }
-  //     if (!req.file) {
-  //       throw { message: "File Required" };
-  //     }
-  //     const base64File = req.file.buffer.toString("base64");
-  //     const response = await imagekit.upload({
-  //       file: base64File,
-  //       fileName: req.file.originalname || product.name,
-  //     });
-
-  //     await Product.update(
-  //       { imgUrl: response.url },
-  //       { where: { id: productId } }
-  //     );
-  //     // console.log(response);
-  //     res
-  //       .status(200)
-  //       .json({ message: `Image ${response.name} success to update` });
-  //   } catch (error) {
-  //     // console.log(error);
-  //     next(error);
-  //   }
-  // }
   static async Google(req, res, next) {
     try {
       // console.log("google auth");

@@ -6,6 +6,7 @@ import Parent from "../views/Parent";
 import Main from "../views/Main";
 import Videos from "../views/Videos";
 import WatchVideo from "../views/WatchVideo";
+import Audios from "../views/Audios";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/videos/:videoId",
         element: <WatchVideo />,
+      },
+      {
+        path: "/audios",
+        element: <Audios />,
       },
     ],
   },
