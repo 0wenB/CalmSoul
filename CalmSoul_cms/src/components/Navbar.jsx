@@ -13,32 +13,32 @@ const Navbar = () => {
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
         <a className="text-3xl font-bold leading-none" href="/videos">
           <svg
-            style={{ color: "red" }}
+            fill="#4D77B4"
+            height="64px"
+            width="64px"
+            version="1.1"
+            id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
-            width="40"
-            zoomAndPan="magnify"
-            viewBox="0 0 30 30.000001"
-            height="40"
-            preserveAspectRatio="xMidYMid meet"
-            version="1.0"
+            viewBox="0 0 511.999 511.999"
+            xmlSpace="preserve"
+            stroke="#4D77B4"
           >
-            <defs>
-              <clipPath id="id1">
-                <path
-                  d="M 5.859375 2.902344 L 24 2.902344 L 24 26 L 5.859375 26 Z M 5.859375 2.902344 "
-                  clipRule="nonzero"
-                  fill="red"
-                ></path>
-              </clipPath>
-            </defs>
-            <g clipPath="url(#id1)">
-              <path
-                fill="red"
-                d="M 15.957031 25.929688 C 17.710938 25.757812 19.347656 25.195312 20.648438 24.316406 C 21.300781 23.878906 22.222656 22.96875 22.625 22.363281 C 23.210938 21.484375 23.636719 20.429688 23.863281 19.285156 C 23.953125 18.84375 23.964844 18.066406 23.980469 10.851562 L 24 2.902344 L 18.59375 2.902344 L 18.59375 10.179688 C 18.59375 14.964844 18.574219 17.644531 18.535156 18.007812 C 18.460938 18.65625 18.25 19.425781 18.039062 19.828125 C 17.769531 20.332031 17.273438 20.808594 16.753906 21.0625 C 15.328125 21.765625 13.246094 21.511719 12.257812 20.519531 C 11.753906 20.011719 11.40625 19.195312 11.261719 18.171875 C 11.226562 17.917969 11.203125 14.976562 11.203125 10.335938 L 11.203125 2.902344 L 5.859375 2.902344 L 5.859375 10.429688 C 5.859375 17.980469 5.871094 18.621094 6.0625 19.574219 C 6.539062 21.929688 7.996094 23.804688 10.230469 24.929688 C 11.867188 25.753906 13.988281 26.121094 15.957031 25.929688 Z M 15.957031 25.929688 "
-                fillOpacity="1"
-                fillRule="nonzero"
-              ></path>
+            <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+            <g
+              id="SVGRepo_tracerCarrier"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <g id="SVGRepo_iconCarrier">
+              {" "}
+              <g>
+                {" "}
+                <g>
+                  {" "}
+                  <path d="M511.792,185.489c-0.479-8.5-7.271-15.276-15.759-15.738c-1.503-0.095-32.88-1.669-72.68,6.033 c-7.922-38.771-21.195-66.659-22.279-68.886c-3.695-7.619-12.532-11.26-20.476-8.472c-1.447,0.5-31.629,11.109-65.848,33.737 c-22.466-33.2-45.815-54.23-47.687-55.887c-6.326-5.587-15.803-5.587-22.129,0c-1.864,1.651-25.009,22.479-47.379,55.415 c-33.934-22.31-63.717-32.775-65.144-33.271c-8-2.771-16.781,0.88-20.476,8.477c-1.085,2.232-14.398,30.211-22.315,69.08 c-40.248-7.912-72.134-6.312-73.655-6.226c-8.488,0.462-15.281,7.239-15.759,15.738c-0.272,4.875-5.859,120.185,64.679,189.87 c89.493,88.409,297.515,83.698,382.239-0.001C517.651,305.675,512.065,190.364,511.792,185.489z M128.957,293.915 c-24.792-59.103-4.131-128.494,7.021-157.998c11.018,4.935,27.194,13.062,44.396,24.486c-14.406,27.477-25.56,60.007-25.56,95.318 c0,42.314,15.95,80.707,34.421,111.071C165.489,348.876,141.901,324.794,128.957,293.915z M384.052,293.915 c-13.214,31.52-37.648,56.023-61.988,74.083c18.774-30.544,35.12-69.417,35.12-112.275c0.001-35.095-11.022-67.434-25.298-94.803 c17.441-11.65,33.967-19.967,45.178-24.997C388.248,165.366,408.931,234.594,384.052,293.915z" />{" "}
+                </g>{" "}
+              </g>{" "}
             </g>
           </svg>
         </a>
@@ -56,16 +56,16 @@ const Navbar = () => {
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li className="text-gray-300">
-            <a
-              className="text-[2rem] text-[#F46956] font-extrabold mx-[1rem]"
-              href="/videos"
+            <Link
+              className="self-center text-[2rem] font-bold whitespace-nowrap dark:text-gray text-[#3968AC]"
+              to="/videos"
             >
-              UNIKLO
-            </a>
+              CalmSoul
+            </Link>
           </li>
         </ul>
         <Link
-          className="hidden lg:inline-block py-2 px-6 hover:bg-[#ED462F] text-sm text-white font-bold rounded-xl transition duration-200 bg-[#F46956]"
+          className="hidden lg:inline-block py-2 px-6 bg-[#4D77B4] hover:bg-[#4884DB] text-white font-bold py-2 px-4 rounded-full"
           onClick={clickLogout}
         >
           Logout

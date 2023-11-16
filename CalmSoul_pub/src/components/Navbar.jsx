@@ -1,5 +1,5 @@
 import { googleLogout } from "@react-oauth/google";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -13,19 +13,19 @@ const Navbar = () => {
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
-          <a
-            href="https://flowbite.com/"
+          <Link
+            to="/main"
             className="flex items-center space-x-3 rtl:space-x-reverse z-10"
           >
-            <img
+            {/* <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"
               alt="CalmSoul Logo"
-            />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray text-gray">
+            /> */}
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-gray text-[#3968AC]">
               CalmSoul
             </span>
-          </a>
+          </Link>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
@@ -58,7 +58,7 @@ const Navbar = () => {
               <li className="z-10">
                 <button
                   onClick={logout}
-                  className="block py-2 px-3 text-gray rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-gray md:dark:hover:bg-transparent"
+                  className="bg-[#4D77B4] hover:bg-[#4884DB] text-white font-bold py-2 px-4 rounded-full"
                 >
                   Logout
                 </button>

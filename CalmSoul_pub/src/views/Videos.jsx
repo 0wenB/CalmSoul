@@ -31,9 +31,17 @@ const Videos = () => {
     <>
       <section className="min-h-screen">
         <div className="flex flex-col items-center mt-10">
-          <h1>Why do we meditate?</h1>
-          <video width="600" height="450" controls autoPlay>
-            <source src="https://i.imgur.com/gC4cvrc.mp4" type="video/mp4" />
+          <h1 className="relative mb-4 text-3xl font-black leading-tight text-[#4D77B4] sm:text-6xl xl:mb-8 bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent ">
+            Why do we meditate?
+          </h1>
+          <video
+            width="600"
+            height="450"
+            controls
+            autoPlay
+            className="shadow-sm"
+          >
+            <source src="https://i.imgur.com/o61nEsB.mp4" type="video/mp4" />
           </video>
           {videos.map((video, id) => {
             return <MovieCard key={id} detail={video} />;

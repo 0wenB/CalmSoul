@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Home from "../views/Home";
@@ -10,16 +10,44 @@ import Audios from "../views/Audios";
 
 const router = createBrowserRouter([
   {
+    path: "*",
+    element: <Home />,
+    loader: async () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/main");
+      }
+      return null;
+    },
+  },
+  {
     path: "/",
     element: <Home />,
+    loader: async () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/main");
+      }
+      return null;
+    },
   },
   {
     path: "/login",
     element: <Login />,
+    loader: async () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/main");
+      }
+      return null;
+    },
   },
   {
     path: "/register",
     element: <Register />,
+    loader: async () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/main");
+      }
+      return null;
+    },
   },
   {
     element: <Parent />,
@@ -41,6 +69,12 @@ const router = createBrowserRouter([
         element: <Audios />,
       },
     ],
+    loader: async () => {
+      if (!localStorage.getItem("token")) {
+        return redirect("/");
+      }
+      return null;
+    },
   },
 ]);
 

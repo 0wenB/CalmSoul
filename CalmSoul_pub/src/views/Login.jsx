@@ -85,7 +85,7 @@ const Login = () => {
             <h1 className="mt-3  w-auto h-10 inline-flex font-bold text-[3rem]">
               CalmSoul
             </h1>
-            <p> {JSON.stringify(userInput)}</p>
+            {/* <p> {JSON.stringify(userInput)}</p> */}
             <div className="py-3 space-x-2">
               <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">
                 f

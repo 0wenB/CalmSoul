@@ -12,27 +12,35 @@ const Home = () => {
   return (
     <>
       <section className="min-h-screen">
-        <div className="absolute top-[30%] left-[10%] z-20 text-white text-[2rem]">
-          <h1>Choose</h1>
-          <h1> Peace</h1>
-          <button onClick={signup}>Sign Up</button>
+        <div className="absolute top-[30%] left-[7%] z-20 text-white">
+          <div className="font-bold py-4 text-[5rem] ">
+            <h1 className="">Silence Has</h1>
+            <h1 className="">it&apos;s Own Voice </h1>
+          </div>
+          <button
+            onClick={signup}
+            className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full opacity-80 rounded-full text-[1.25rem]"
+          >
+            Sign Up
+          </button>
         </div>
         {/* --------------NAVBAR ---------------------- */}
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
-            <a
-              href="https://flowbite.com/"
+            <Link
+              to="/"
               className="flex items-center space-x-3 rtl:space-x-reverse z-10"
             >
-              <img
+              {/* <img
                 src="https://flowbite.com/docs/images/logo.svg"
                 className="h-8"
                 alt="CalmSoul Logo"
-              />
+              /> */}
+
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-white">
                 CalmSoul
               </span>
-            </a>
+            </Link>
             <button
               data-collapse-toggle="navbar-default"
               type="button"
@@ -65,7 +73,7 @@ const Home = () => {
                 <li className="z-10">
                   <Link
                     to="/login"
-                    className="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full opacity-80"
                   >
                     Sign In
                   </Link>
@@ -78,7 +86,7 @@ const Home = () => {
         {/* --------------DIV BACKGROUND ---------------------- */}
         <div className="opacity-80">
           <div
-            className="h-screen bg-cover bg-no-repeat"
+            className="h-screen bg-cover bg-no-repeat "
             style={{
               marginTop: "-56px",
               backgroundImage:

@@ -57,7 +57,7 @@ const AddVideo = () => {
   if (error) return <h1>{error}</h1>;
   return (
     <>
-      {JSON.stringify(userInput)}
+      {/* {JSON.stringify(userInput)} */}
 
       <div
         className="relative min-h-screen flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"

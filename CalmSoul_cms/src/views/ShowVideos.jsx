@@ -32,8 +32,8 @@ const ShowVideos = () => {
   if (error) return <h1>{error}</h1>;
   return (
     <>
-      <div className="text-red-400 flex justify-center pt-[2rem]">
-        <Link to="/add-video" className="p-2 underline hover:text-indigo-600">
+      <div className="text-[#4D77B4] flex justify-center pt-[2rem]">
+        <Link to="/add-video" className="p-2 underline hover:text-indigo-500">
           Add Video
         </Link>
       </div>
