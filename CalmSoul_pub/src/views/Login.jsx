@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [userInput, setUserInput] = useState({
     email: "",
@@ -21,9 +22,10 @@ const Login = () => {
       localStorage.setItem("token", token);
       navigate("/main");
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
+  if (error) return <h1>{error}</h1>;
 
   return (
     <>

@@ -108,7 +108,7 @@ const Register = () => {
                     );
                     // console.log(data);
                     localStorage.setItem("token", data);
-                    navigate("/");
+                    navigate("/main");
                   } catch (error) {
                     console.log(error);
                   }

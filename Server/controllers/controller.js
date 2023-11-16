@@ -34,6 +34,23 @@ class Controller {
     }
   }
 
+  static async showVideoById(req, res, next) {
+    try {
+      const { videoId } = req.params;
+      const video = await Video.findOne({ where: { id: videoId } });
+
+      if (!video) {
+        throw { message: "Not Found" };
+      }
+      res.status(200).json({
+        message: "Successfully find video by videoId",
+        video,
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async editVideo(req, res, next) {
     try {
       const { videoName, videoLink, videoCategory } = req.body;
