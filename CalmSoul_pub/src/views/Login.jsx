@@ -160,7 +160,7 @@ const Login = () => {
               <div className="px-4 pb-2 pt-4">
                 <button
                   type="submit"
-                  className=" block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+                  className=" block w-full p-4 text-lg rounded-full bg-[#4D77B4] hover:bg-[#4884DB] focus:outline-none"
                 >
                   Login
                 </button>

@@ -1,6 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Register = () => {
@@ -171,10 +171,13 @@ const Register = () => {
                   }}
                 />
               </div>
-              <div className="px-4 pb-2 pt-4">
+              <div className="px-4 pb-2 pt-2">
+                <div className="pb-4">
+                  <Link to="/login">Already have an account? Sign in</Link>
+                </div>
                 <button
                   type="submit"
-                  className=" block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"
+                  className=" block w-full p-4 text-lg rounded-full bg-[#4D77B4] hover:bg-[#4884DB] focus:outline-none"
                 >
                   Register
                 </button>
