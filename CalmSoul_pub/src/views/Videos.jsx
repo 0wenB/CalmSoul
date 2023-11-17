@@ -31,7 +31,7 @@ const Videos = () => {
     <>
       <section className="min-h-screen">
         <div className="flex flex-col items-center mt-10">
-          <h1 className="relative mb-4 text-3xl font-black leading-tight text-[#4D77B4] sm:text-6xl xl:mb-8 bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent ">
+          <h1 className="relative mb-4 text-3xl font-black leading-tight text-[#4D77B4] sm:text-6xl xl:mb-8 bg-gradient-to-tl from-blue-400 to-neutral-400 bg-clip-text text-transparent ">
             Why do we meditate?
           </h1>
           <video
