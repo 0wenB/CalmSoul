@@ -13,7 +13,7 @@ const ShowVideos = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const { data } = await axios.get("http://localhost:3000/", {
+      const { data } = await axios.get("https://calm.bryanowen.tech/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       // console.log(data);
@@ -89,7 +89,7 @@ const ShowVideos = () => {
                                 e.preventDefault();
                                 const token = localStorage.getItem("token");
                                 await axios.delete(
-                                  `http://localhost:3000/${video.id}`,
+                                  `https://calm.bryanowen.tech/${video.id}`,
                                   {
                                     headers: {
                                       Authorization: `Bearer ${token}`,

@@ -14,7 +14,7 @@ const Register = () => {
   const register = async (e) => {
     try {
       e.preventDefault();
-      await axios.post("http://localhost:3000/register", userInput);
+      await axios.post("https://calm.bryanowen.tech/register", userInput);
       navigate("/login");
     } catch (error) {
       setError(error.message);
@@ -102,7 +102,7 @@ const Register = () => {
                   try {
                     // console.log(credentialResponse);
                     const { data } = await axios.post(
-                      "http://localhost:3000/auth-google",
+                      "https://calm.bryanowen.tech/auth-google",
                       null,
                       { headers: { token: credentialResponse.credential } }
                     );

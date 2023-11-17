@@ -11,7 +11,7 @@ const WatchVideo = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const data = await axios.get(`http://localhost:3000/${videoId}`, {
+      const data = await axios.get(`https://calm.bryanowen.tech/${videoId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       // console.log(data);

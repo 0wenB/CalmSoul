@@ -15,7 +15,7 @@ const Home = () => {
         <div className="absolute top-[30%] left-[7%] z-20 text-white">
           <div className="font-bold py-4 text-[5rem] ">
             <h1 className="">Silence Has</h1>
-            <h1 className="">it&apos;s Own Voice </h1>
+            <h1 className="">Its Own Voice </h1>
           </div>
           <button
             onClick={signup}

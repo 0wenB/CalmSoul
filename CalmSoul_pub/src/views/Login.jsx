@@ -14,7 +14,7 @@ const Login = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://calm.bryanowen.tech/login",
         userInput
       );
       // console.log(response);
@@ -108,7 +108,7 @@ const Login = () => {
                   try {
                     // console.log(credentialResponse);
                     const { data } = await axios.post(
-                      "http://localhost:3000/auth-google",
+                      "https://calm.bryanowen.tech/auth-google",
                       null,
                       { headers: { token: credentialResponse.credential } }
                     );

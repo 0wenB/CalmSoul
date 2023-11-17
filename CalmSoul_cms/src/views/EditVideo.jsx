@@ -18,7 +18,7 @@ const EditVideo = () => {
       event.preventDefault();
       const token = localStorage.getItem("token");
 
-      await axios.put(`http://localhost:3000/${videoId}`, userInput, {
+      await axios.put(`https://calm.bryanowen.tech/${videoId}`, userInput, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

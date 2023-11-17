@@ -41,7 +41,7 @@ const AddVideo = () => {
       // console.log(response);
 
       await axios.post(
-        "http://localhost:3000/add",
+        "https://calm.bryanowen.tech/add",
         { ...userInput, videoLink: response.data.data.link },
         {
           headers: { Authorization: `Bearer ${token}` },

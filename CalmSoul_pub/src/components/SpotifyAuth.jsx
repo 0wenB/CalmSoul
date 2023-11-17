@@ -8,7 +8,7 @@ const useAuth = (code) => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3000/spotify-login", {
+      .post("https://calm.bryanowen.tech/spotify-login", {
         code,
       })
       .then((res) => {
@@ -27,7 +27,7 @@ const useAuth = (code) => {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post("http://localhost:3000/refresh", {
+        .post("https://calm.bryanowen.tech/refresh", {
           refreshToken,
         })
         .then((res) => {
